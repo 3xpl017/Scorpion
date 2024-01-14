@@ -18,7 +18,108 @@ CYAN = '\033[36m'
 WHITE = '\033[37m'
 RESET = '\033[39m'
 
-# HACER EL INSTALADOR EN EL MISMO PROGRAMA DE PYTHON QUE INCLUYA INSTALAR MSFVENOM
+# creamos la función de 'salir'
+def salir():
+    os.system('clear')
+    print(Fore.RESET + Back.RESET)
+    sys.exit()
+
+# creamos la función de 'volver al menú'
+def volver_menu():
+    os.system('clear')
+    title = '''
+            .__                             .__                                 
+___  ______ |  |___  __ ___________  _____  |  |     _____   ____   ____  __ __ 
+\  \/ /  _ \|  |\  \/ // __ \_  __ \ \__  \ |  |    /     \_/ __ \ /    \|  |  \
+ \   (  <_> )  |_\   /\  ___/|  | \/  / __ \|  |__ |  Y Y  \  ___/|   |  \  |  /
+  \_/ \____/|____/\_/  \___  >__|    (____  /____/ |__|_|  /\___  >___|  /____/ 
+                           \/             \/             \/     \/     \/       
+'''
+    print(Fore.RED + Back.RESET + title)
+
+    choice = input(Fore.BLUE + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+    print(Fore.RESET + Back.RESET)
+    menu()
+
+# creamos la función de 'ver todos los payloads posibles'
+def ver_payloads():
+    os.system('clear')
+    title = '''
+                                         .__                    .___      
+___  __ ___________  ___________  ___.__.|  |   _________     __| _/______
+\  \/ // __ \_  __ \ \____ \__  \<   |  ||  |  /  _ \__  \   / __ |/  ___/
+ \   /\  ___/|  | \/ |  |_> > __ \\___  ||  |_(  <_> ) __ \_/ /_/ |\___ \ 
+  \_/  \___  >__|    |   __(____  / ____||____/\____(____  /\____ /____  >
+           \/        |__|       \/\/                     \/      \/    \/
+'''
+    print(Fore.RED + Back.RESET + title)
+
+    print(Fore.BLUE + Back.RESET + '[>] Todos los payloads posibles')
+    print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
+    os.system('msfvenom -l payloads')
+    print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
+    choice = input(Fore.BLUE + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+    print(Fore.RESET + Back.RESET)
+    menu()
+
+# creamos la función de 'ERROR'
+def error():
+    os.system('clear')
+    title = '''
+  __________________  ___________ 
+_/ __ \_  __ \_  __ \/  _ \_  __ \
+\  ___/|  | \/|  | \(  <_> )  | \/
+ \___  >__|   |__|   \____/|__|   
+     \/                           
+'''
+    print(Fore.RED + Back.RESET + title)
+
+    print(Fore.BLUE + Back.RESET + '[>] Error: Command not found\n')
+    choice = input(Fore.BLUE + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+    print(Fore.RESET + Back.RESET)
+    menu()
+
+# creamos la función de 'windows'
+def windows():
+    os.system('clear')
+    title = '''
+        .__            .___                                        .__                    .___      
+__  _  _|__| ____    __| _/______  _  ________ ___________  ___.__.|  |   _________     __| _/______
+\ \/ \/ /  |/    \  / __ |/  _ \ \/ \/ /  ___/ \____ \__  \<   |  ||  |  /  _ \__  \   / __ |/  ___/
+ \     /|  |   |  \/ /_/ (  <_> )     /\___ \  |  |_> > __ \\___  ||  |_(  <_> ) __ \_/ /_/ |\___ \ 
+  \/\_/ |__|___|  /\____ |\____/ \/\_//____  > |   __(____  / ____||____/\____(____  /\____ /____  >
+                \/      \/                 \/  |__|       \/\/                     \/      \/    \/
+'''
+    print(Fore.RED + Back.RESET + title + '\n')
+    
+
+# creamos la función de 'linux'
+def linux():
+    os.system('clear')
+    title = '''
+.__  .__                                          .__                    .___      
+|  | |__| ____  __ _____  ___ ___________  ___.__.|  |   _________     __| _/______
+|  | |  |/    \|  |  \  \/  / \____ \__  \<   |  ||  |  /  _ \__  \   / __ |/  ___/
+|  |_|  |   |  \  |  />    <  |  |_> > __ \\___  ||  |_(  <_> ) __ \_/ /_/ |\___ \ 
+|____/__|___|  /____//__/\_ \ |   __(____  / ____||____/\____(____  /\____ /____  >
+             \/            \/ |__|       \/\/                     \/      \/    \/ 
+'''
+    print(Fore.RED + Back.RESET + title + '\n')
+
+
+# creamos la función de 'android'
+def android():
+    os.system('clear')
+    title = '''
+                   .___             .__    .___                     .__                    .___      
+_____    ____    __| _/______  ____ |__| __| _/ ___________  ___.__.|  |   _________     __| _/______
+\__  \  /    \  / __ |\_  __ \/  _ \|  |/ __ |  \____ \__  \<   |  ||  |  /  _ \__  \   / __ |/  ___/
+ / __ \|   |  \/ /_/ | |  | \(  <_> )  / /_/ |  |  |_> > __ \\___  ||  |_(  <_> ) __ \_/ /_/ |\___ \ 
+(____  /___|  /\____ | |__|   \____/|__\____ |  |   __(____  / ____||____/\____(____  /\____ /____  >
+     \/     \/      \/                      \/  |__|       \/\/                     \/      \/    \/ 
+'''
+    print(Fore.RED + Back.RESET + title)
+
 
 # hacemos el menú
 def menu():
@@ -60,9 +161,7 @@ def menu():
     choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
 
     if choice == '00':
-        os.system('clear')
-        print(Fore.RESET + Back.RESET)
-        sys.exit()
+        salir()
 
     elif choice == '01':
         os.system('clear')
@@ -74,69 +173,54 @@ def menu():
     [02] Ver la lista de payloads disponibles
     [03] Generar payloads para Windows
     [04] Generar payloads para Linux
-    [05] Generar payloads para Andrroid
+    [05] Generar payloads para Android
     [06] Generar payloads en diferentes lenguajes
     '''
         print(Fore.BLUE + Back.RESET + options)
         choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
 
         if choice == '00':
-            os.system('clear')
-            print(Fore.RESET + Back.RESET)
-            sys.exit()
+            salir()
 
         elif choice == '01':
-            os.system('clear')
-            choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-            print(Fore.RESET + Back.RESET)
-            menu()
+            volver_menu()
 
         elif choice == '02':
-            os.system('clear')
-            print(Fore.BLUE + Back.RESET + '[>] Todos los payloads posibles')
-            print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
-            os.system('msfvenom -l payloads')
-            print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
-            choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-            print(Fore.RESET + Back.RESET)
-            menu()
+            ver_payloads()
 
         elif choice == '03':
             os.system('clear')
             options = '''
 [00] Salir
 [01] Volver al menú
-[02] Ver todos los payloads posibles
-[03] Generar payloads para windows
+[02] Ver todos los payloads posibles para Windows
+[03] Generar payloads para Windows
 '''
             print(Fore.BLUE + Back.RESET + options)
 
             choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
 
             if choice == '00':
-                os.system('clear')
-                print(Fore.RESET + Back.RESET)
-                sys.exit()
+                salir()
 
             elif choice == '01':
-                os.system('clear')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-                print(Fore.RESET + Back.RESET)
-                menu()
+                volver_menu()
 
             elif choice == '02':
-                os.system('clear')
+                windows()
+
                 print(Fore.BLUE + Back.RESET + '[>] Todos los payloads posibles para Windows')
                 print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
                 os.system('msfvenom -l payloads | grep windows')
                 print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                choice = input(Fore.BLUE + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
                 print(Fore.RESET + Back.RESET)
                 menu()
 
             elif choice == '03':
                 contador = 0
-                os.system('clear')
+                windows()
+
                 port = int(input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el puerto]: '))
                 ip = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa tu IP]: ')
                 archivo = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el nombre de tu payload]: ')
@@ -154,11 +238,7 @@ def menu():
                 menu()
 
             else:
-                os.system('clear')
-                print(Fore.BLUE + Back.RESET + '\n[>] Error: Command not found')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-                print(Fore.RESET + Back.RESET)
-                menu()
+                error()
 
         elif choice == '04':
             os.system('clear')
@@ -173,29 +253,26 @@ def menu():
             choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
 
             if choice == '00':
-                os.system('clear')
-                print(Fore.RESET + Back.RESET)
-                sys.exit()
+                salir()
 
             elif choice == '01':
-                os.system('clear')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-                print(Fore.RESET + Back.RESET)
-                menu()
+                volver_menu()
 
             elif choice == '02':
-                os.system('clear')
+                linux()
+
                 print(Fore.BLUE + Back.RESET + '[>] Todos los payloads posibles para Linux')
                 print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
                 os.system('msfvenom -l payloads | grep linux')
                 print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                choice = input(Fore.BLUE + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
                 print(Fore.RESET + Back.RESET)
                 menu()
 
             elif choice == '03':
                 contador = 0
-                os.system('clear')
+                linux()
+
                 port = int(input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el puerto]: '))
                 ip = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa tu IP]: ')
                 ip_remota = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa la IP remota]: ')
@@ -216,11 +293,7 @@ def menu():
                 menu()
 
             else:
-                os.system('clear')
-                print(Fore.BLUE + Back.RESET + '\n[>] Error: Command not found')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-                print(Fore.RESET + Back.RESET)
-                menu()
+                error()
 
         elif choice == '05':
             os.system('clear')
@@ -235,28 +308,25 @@ def menu():
             choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
 
             if choice == '00':
-                os.system('clear')
-                print(Fore.RESET + Back.RESET)
-                sys.exit()
+                salir()
 
             elif choice == '01':
-                os.system('clear')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-                print(Fore.RESET + Back.RESET)
-                menu()
+                volver_menu()
 
             elif choice == '02':
-                os.system('clear')
+                android()
+
                 print(Fore.BLUE + Back.RESET + '[>] Todos los payloads posibles para Android')
                 print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
                 os.system('msfvenom -l payloads | grep android')
                 print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                choice = input(Fore.BLUE + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
                 print(Fore.RESET + Back.RESET)
                 menu()
 
             elif choice == '03':
-                os.system('clear')
+                android()
+
                 port = int(input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el puerto]: '))
                 ip = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa tu IP]: ')
                 archivo = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el nombre de tu payload]: ')
@@ -267,11 +337,7 @@ def menu():
                 menu()
 
             else:
-                os.system('clear')
-                print(Fore.BLUE + Back.RESET + '\n[>] Error: Command not found')
-                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-                print(Fore.RESET + Back.RESET)
-                menu()
+                error()
 
 
         elif choice == '06':
@@ -295,17 +361,9 @@ def menu():
             menu()
 
         else:
-            os.system('clear')
-            print(Fore.BLUE + Back.RESET + '\n[>] Error: Command not found')
-            choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-            print(Fore.RESET + Back.RESET)
-            menu()
+            error()
 
     else:
-        os.system('clear')
-        print(Fore.BLUE + Back.RESET + '\n[>] Error: Command not found')
-        choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-        print(Fore.RESET + Back.RESET)
-        menu()
+        error()
 
 menu()
