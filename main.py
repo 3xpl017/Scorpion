@@ -189,7 +189,8 @@ def menu():
             ver_payloads()
 
         elif choice == '03':
-            os.system('clear')
+            windows()
+
             options = '''
 [00] Salir
 [01] Volver al menú
@@ -241,7 +242,7 @@ def menu():
                 error()
 
         elif choice == '04':
-            os.system('clear')
+            linux()
             options = '''
 [00] Salir
 [01] Volver al menú
@@ -296,7 +297,7 @@ def menu():
                 error()
 
         elif choice == '05':
-            os.system('clear')
+            android()
             options = '''
 [00] Salir
 [01] Volver al menú
