@@ -167,6 +167,7 @@ def menu():
         os.system('clear')
         time.sleep(1)
         options = '''
+    ------------------------------------------------------------------------------------------
     [!] Es aconsejable darle permisos a los payloads antes de enviarlos con chmod.
     [00] Salir
     [01] Volver al menú
@@ -175,6 +176,7 @@ def menu():
     [04] Generar payloads para Linux
     [05] Generar payloads para Android
     [06] Generar payloads en diferentes lenguajes
+    ------------------------------------------------------------------------------------------
     '''
         print(Fore.BLUE + Back.RESET + options)
         choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ ')
