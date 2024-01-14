@@ -12,4 +12,5 @@ pip3 install colarama
 pip3 install sys
 pip3 install time
 pip3 install socket
+echo --------------------------------------------------------------------------------------------
 echo [~] Requerimientos instalados. Usa el comando python3 main.py para inciar Scorpion.
